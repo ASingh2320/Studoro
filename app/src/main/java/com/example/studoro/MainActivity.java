@@ -1,6 +1,8 @@
 package com.example.studoro;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -21,8 +23,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         initStartButton();
         initResetButton();
+        initPastButton();
+        initFutureButton();
         runTimer();
     }
+
 
     public void initStartButton() {
         final Button startButton = findViewById(R.id.startButton);
@@ -72,4 +77,36 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    private void initPastButton() {
+        Button pastbtn = (Button) findViewById(R.id.pastbutton);
+        pastbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openPastActivity();
+            }
+        });
+    }
+    private void openPastActivity() {
+        Intent intent = new Intent(this, PastActivity.class);
+        startActivity(intent);
+    }
+
+
+    private void initFutureButton() {
+        Button futurebtn = (Button) findViewById(R.id.futurebutton);
+        futurebtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openFutureActivity();
+            }
+        });
+    }
+
+    private void openFutureActivity() {
+        Intent intent = new Intent(this, FutureActivity.class);
+        startActivity(intent);
+    }
+
+
 }
