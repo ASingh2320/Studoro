@@ -1,13 +1,12 @@
 package com.example.studoro;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Locale;
 
@@ -15,7 +14,6 @@ public class MainActivity extends AppCompatActivity {
 
     private int seconds = 0;
     private boolean running;
-    private boolean wasRunning;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,16 +29,13 @@ public class MainActivity extends AppCompatActivity {
 
     public void initStartButton() {
         final Button startButton = findViewById(R.id.startButton);
-        startButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                running = !running;
-                if(!running) {
-                    startButton.setText(R.string.start_button_text);
-                }
-                else {
-                    startButton.setText(R.string.stop_button_text);
-                }
+        startButton.setOnClickListener(v -> {
+            running = !running;
+            if(!running) {
+                startButton.setText(R.string.start_button_text);
+            }
+            else {
+                startButton.setText(R.string.stop_button_text);
             }
         });
     }
@@ -48,13 +43,10 @@ public class MainActivity extends AppCompatActivity {
     public void initResetButton() {
         final Button resetButton = findViewById(R.id.resetButton);
         final Button startButton = findViewById(R.id.startButton);
-        resetButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                running = false;
-                seconds = 0;
-                startButton.setText(R.string.start_button_text);
-            }
+        resetButton.setOnClickListener(v -> {
+            running = false;
+            seconds = 0;
+            startButton.setText(R.string.start_button_text);
         });
     }
 
@@ -79,13 +71,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initPastButton() {
-        Button pastbtn = (Button) findViewById(R.id.pastbutton);
-        pastbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openPastActivity();
-            }
-        });
+        Button pastbtn = findViewById(R.id.pastbutton);
+        pastbtn.setOnClickListener(v -> openPastActivity());
     }
     private void openPastActivity() {
         Intent intent = new Intent(this, PastActivity.class);
@@ -94,13 +81,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void initFutureButton() {
-        Button futurebtn = (Button) findViewById(R.id.futurebutton);
-        futurebtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openFutureActivity();
-            }
-        });
+        Button futurebtn = findViewById(R.id.futurebutton);
+        futurebtn.setOnClickListener(v -> openFutureActivity());
     }
 
     private void openFutureActivity() {

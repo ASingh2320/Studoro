@@ -15,7 +15,7 @@ import com.github.mikephil.charting.data.PieEntry;
 import java.util.ArrayList;
 
 public class FutureActivity extends AppCompatActivity {
-//followed this tutotrial:https://www.youtube.com/watch?v=8BcTXbwDGbg
+//followed this tutorial:https://www.youtube.com/watch?v=8BcTXbwDGbg
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
